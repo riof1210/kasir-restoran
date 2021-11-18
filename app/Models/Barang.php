@@ -21,9 +21,9 @@ class Barang extends Model
         return $this->hasMany('App\Models\Pesan', 'id_barang');
     }
     public function transaksi(){
-        return $this->hasMany('App\Models\Transaksi', 'id_barang')
+        return $this->hasMany('App\Models\Transaksi', 'id_barang');
     }
     public function kategori(){
-        return $this->belongsTo('App\Models\Kategori', 'kategori_id')
+        return $this->belongsTo('App\Models\Kategori', 'kategori_id');
     }
 }

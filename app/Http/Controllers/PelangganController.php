@@ -87,7 +87,7 @@ class PelangganController extends Controller
         $pelanggan = Pelanggan::findOrFail($id);
         $pelanggan->nama = $request->nama;
         $pelanggan->save();
-        return redirect()->route('author.index');
+        return redirect()->route('pelanggan.index');
     }
 
     /**
@@ -100,6 +100,6 @@ class PelangganController extends Controller
     {
         $pelanggan = Pelanggan::findOrFail($id);
         $pelanggan->delete();
-        return redirect()->route('author.index');
+        return redirect()->route('pelanggan.index');
     }
 }

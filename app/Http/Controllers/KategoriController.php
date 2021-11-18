@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 
 class KategoriController extends Controller
@@ -37,11 +38,11 @@ class KategoriController extends Controller
     {
         //
         $validated = $request->validate([
-            'kategori' => 'required',
+            'kategori_barang' => 'required',
         ]);
 
         $kategori = new Kategori;
-        $kategori->kategori = $request->kategori;
+        $kategori->kategori_barang = $request->kategori_barang;
         $kategori->save();
         return redirect()->route('kategori.index');
     }
@@ -54,7 +55,7 @@ class KategoriController extends Controller
      */
     public function show($id)
     {
-        $kategori = kategori::findOrFail($id);
+        $kategori = Kategori::findOrFail($id);
         return view('admin.kategori.show', compact('kategori'));
     }
 

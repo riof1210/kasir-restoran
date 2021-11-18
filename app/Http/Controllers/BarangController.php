@@ -42,7 +42,7 @@ class BarangController extends Controller
         $validated = $request->validate([
             'kategori_id' => 'required',
             'nama_barang' => 'required',
-            'harga' => 'rquired',
+            'harga' => 'required',
             'stok' => 'required'
         ]);
 
@@ -75,7 +75,7 @@ class BarangController extends Controller
      */
     public function edit($id)
     {
-        $barang = barang::findOrFail($id);
+        $barang = Barang::findOrFail($id);
         $kategori = Kategori::all();
         return view('admin.barang.edit', compact('barang','kategori'));
     }

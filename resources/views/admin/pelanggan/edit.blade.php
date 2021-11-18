@@ -4,7 +4,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
-                    <h1 class="m-0">Edit Data Penulis</h1>
+                    <h1 class="m-0">Edit Data Pelanggan</h1>
                 </div>
             </div>
         </div>
@@ -16,14 +16,14 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Data Penulis</div>
+                    <div class="card-header">Data Pelanggan</div>
                     <div class="card-body">
-                        <form action="{{ route('author.update', $author->id) }}" method="post">
+                        <form action="{{ route('pelanggan.update', $pelanggan->id) }}" method="post">
                         @csrf
                     @method('put')
                 <div class="form-group">
-                    <label for="">Masukan Nama Penulis</label>
-                    <input type="text" name="name" value="{{ $author->name }}" class="form-control @error('name') is-invalid" @enderror>
+                    <label for="">Masukan Nama Pelanggan</label>
+                    <input type="text" name="name" value="{{ $pelanggan->name }}" class="form-control @error('name') is-invalid" @enderror>
                     @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>

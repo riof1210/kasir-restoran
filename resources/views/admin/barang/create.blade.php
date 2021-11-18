@@ -4,7 +4,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
-                    <h1 class="m-0">Tambah Data Penulis</h1>
+                    <h1 class="m-0">Tambah Data Menu</h1>
                 </div>
             </div>
         </div>
@@ -16,16 +16,51 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Data Penulis</div>
+                    <div class="card-header">Data Menu</div>
                     <div class="card-body">
-                        <form action="{{ route('author.store') }}" method="post">
+                        <form action="{{ route('barangs.store') }}" method="post">
                         @csrf
                         <div class="form-group">
-                            <label for="">Masukan Nama Penulis</label>
-                            <input type="text" name="name" class="form-control @error('name')
+                            <label for="">Masukan Nama Menu</label>
+                            <input type="text" name="nama_barang" class="form-control @error('nama_barang')
                                 is-invalid
                             @enderror">
-                            @error('name')
+                            @error('nama_barang')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="">Masukan Jenis Menu</label>
+                            <select name="kategori_id" class="form-control @error('kategori_id') is-invalid @enderror" >
+                                @foreach($kategori as $data)
+                                    <option value="{{$data->id}}">{{$data->kategori_barang}}</option>
+                                @endforeach
+                            </select>
+                            @error('kategori_id')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="">Masukan Harga</label>
+                            <input type="number" name="harga" class="form-control @error('harga')
+                                is-invalid
+                            @enderror">
+                            @error('harga')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="">Masukan Stok Menu</label>
+                            <input type="number" name="stok" class="form-control @error('stok')
+                                is-invalid
+                            @enderror">
+                            @error('stok')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
